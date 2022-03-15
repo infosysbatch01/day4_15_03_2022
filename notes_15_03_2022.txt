@@ -474,3 +474,52 @@ Abstraction
     System.out.println(max);
    }
  }
+-----------------------------------------------------------------------------------------------------
+Complete the code with proper access specifiers and add the code as required.
+
+public class Number {
+ int num1;
+ int num2;
+ int result;
+ 
+ //setter/getter methods for num1 and num2 and decide whether we require setter and getter for result
+
+ int add(){
+ 
+ }
+
+ int subtract(){
+
+ }
+
+ int multiply(){
+
+ }
+
+ int max(){
+ }
+ int min(){
+ }
+}
+
+import java.util.Scanner;
+public class NumberMain{
+   public static void main(String args[]) {
+    Number number=new Number();
+    int result=0;
+    int num1;
+    int num2;
+    Scanner scan=new Scanner(System.in);
+    System.out.println("Enter number1");
+    System.out.println("Enter number2");
+    System.out.println("The addition of num1 "+" and num2="+result);
+    System.out.println("The subtraction of num2 "+" from num1="+result);
+    System.out.println("The multiplication of num1 "+"with num2="+result);
+    System.out.println(result+" is maximum");
+    System.out.println(result+" is minimum");
+    }
+ }
+
+
+
+
