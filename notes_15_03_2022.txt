@@ -340,3 +340,137 @@ public class EmployeeMain2 {
 	}
 
 }
+
+--------------------------------------------------------------------------------------
+class Employee {
+
+	String employeeId;
+	String employeeName;
+	int salary;
+	int bonus;
+	int jobLevel;
+
+	public void calculateSalary() {
+		if (this.jobLevel >= 4) {
+			this.bonus = 100;
+		} else {
+			this.bonus = 50;
+		}
+		this.salary += this.bonus;
+	}
+}
+
+class Tester {
+
+	public static void main(String args[]) {
+
+		Employee employee = new Employee();
+		employee.employeeId = "C101";
+		employee.employeeName = "Steve";
+		employee.salary = 650;
+		employee.jobLevel = 4;
+
+		employee.calculateSalary();
+
+		System.out.println("Employee Details");
+		System.out.println("Employee Id: " + employee.employeeId);
+		System.out.println("Employee Name: " + employee.employeeName);
+		System.out.println("Salary: " + employee.salary);
+
+	}
+}
+---------------------------------------------------------------------------
+class Main {
+    public static void main(String args[]) {
+    System.out.println("Hello Friends");
+    Scanner scan=new Scanner(System.in);
+    int num=scan.nextInt();
+    }
+   }
+ }
+[So we are not able to see the implementation of println and nextInt method. ]
+----------------------------------------------------------------------------------------
+Without abstraction
+
+We have a class Number and we have to find the number which max/larger.
+
+
+  public class Number {
+   private int num1;
+   private int num2;
+   private int max;
+   
+   // setter/getter methods for num1,num2 and max.
+    
+
+   }
+ 
+   public class NumberMain {
+   public static void main(String args[]) {
+    Number number=new Number();
+    number.setNum1(10);
+    number.setNum2(2);
+    if(number.getNum1()>number.getNum2()){
+    number.setMax(number.getNum1());
+    }
+    else
+    {
+    number.setMax(number.getNum2());
+    }
+    System.out.println(number.getMax());
+   }
+ }
+ -----------------------------------
+
+  public class Number {
+   private int num1;
+   private int num2;
+   private int max;
+   
+   // setter/getter methods for num1,num2 and max.
+    
+
+   }
+ 
+   public class NumberMain {
+   public static void main(String args[]) {
+    Number number=new Number();
+    number.setNum1(10);
+    number.setNum2(2);
+    int max=(number.getNum1()>number.getNum2())?number.getNum1():number.getNum2();
+    System.out.println(max);
+ }
+}
+-------------------------------------------------------------
+Abstraction
+
+
+ public class Number {
+   private int num1;
+   private int num2;
+   private int max;
+   
+   // setter/getter methods for num1,num2 and for max only the getter method
+    
+    public int getMax(){
+    /*  if(num1>num2) {
+       max=num1;
+      }  
+      else {
+      max=num2;
+      } */
+      max=(num1>num2)?num1:num2;
+      return max;
+     }
+    
+   }
+ 
+   public class NumberMain {
+   public static void main(String args[]) {
+    Number number=new Number();
+    number.setNum1(10);
+    number.setNum2(2);
+    int max=number.getMax();
+    System.out.println(max);
+   }
+ }
