@@ -1,0 +1,342 @@
+1) access specifiers.
+2) Rounding off
+3) methods setter getter methods
+4) this
+------------------------------------------------------------------------
+
+* Access specifiers: They decides accessibility of a class, member variable
+and methods.
+
+* private, default/package, protected ( inheritance) , public
+
+class Revise1{
+    private int num;
+  }
+
+class ReviseMain1 {
+  public static void main(String args[]) {
+   Revise1 rev=new Revise1();
+   System.out.println(rev.num); 
+ }
+}
+
+[Note: The above code gives compilation error as we are trying to access the private member of a
+class Revise1 from main method which is ReviseMain1.]
+
+
+class Revise2{
+    private int num;
+
+    private void display(){
+    System.out.println(num);
+   }
+  }
+
+class ReviseMain2 {
+  public static void main(String args[]) {
+   Revise2 rev=new Revise2();
+   System.out.println(rev.num);
+   rev.display(); 
+ }
+}
+
+[Note: The above code will show compilation error.]
+--------------------------------------------------------------------
+Whenever we are designing a class. Class is having two types of members.
+* member variables/instance variables
+* member methods
+
+class Revise3 {
+   private int num1;
+   private int num2;
+   private String str; 
+   public void setData(int n1, int n2, String s){
+     num1=n1;  // In primitive type we are passing the value of parameter to the instance variable
+     num2=n2;
+     str=s;   // String is not a primitive datatype. It is non-primitive and of Reference type
+              // In this type we are passing the address and not the value. 
+   }
+  public void setData(String s,int n1, int n2 ){
+   num1=n1;
+   str=s;
+   num2=n2;
+   }
+}
+
+ class ReviseMain3 {
+   public static void main(String args[]) {
+     Revise3 revise=new Revise3();
+     revise.setData(1,2,"Welcome");
+    // revise.setData(1,"Welcome",2);
+    revise.setData("Hello",3,4);
+  }
+}
+-----------------------------------------------------------------------
+class BankAccount {
+   private int id;
+   private String accountHolderName;
+   private String bankName;
+/* for a property like id, accountHolderName and bankName we should have a pair of methods.
+  one method to set the value and another method is to display the values.
+  * The method which for is setting the value, have return type as void and parameter of the 
+    same type for which the setter method is written. 
+  * The method starts with set and followed by making the first character of the property in
+    uppercase.
+  * example if we are writting for id , we write as follow:
+  * id is the name of the parameter and id is also the name of the member variable.
+  * the local variable will be having higher preference to the instance variable.
+  * So the parameter id is again assign to id , if we are not using this to differentiate
+    between member and parameter.
+  * this represents the current object 
+   public void setId(int id){
+      this.id=id;
+    }
+  * For reading or accessing the value, we write getter method, so
+  * getter method have return type same as that of the member variable for which we are writting
+    the getter method.
+  * The name of the method starts with get followed by making the first character in uppercase.
+  * We dont have any parameter.
+  * So example:
+   public int getId(){
+     return id;
+   }   
+  
+
+*/
+
+  setter/getter
+
+}
+
+
+-------------------------------------------------------------------------------------------------
+public class Rounding {
+
+	public static void main(String[] args) {
+		
+		float f1=12.45f;
+		float f2=15.67f;
+		float f3=12.50f;
+		float f4=18.49f;
+		System.out.println(Math.round(f1));
+		System.out.println(Math.round(f2));
+		System.out.println(Math.round(f3));
+		System.out.println(Math.round(f4));
+		float f5=123.4657f;
+		System.out.println(Math.round(f5));
+		float f6=Math.round(f5*100)/100.0f;
+	    System.out.println(f6);
+	    float f7=Math.round(f5*10)/10.0f;
+	    System.out.println(f7);
+	}
+
+}
+-------------------------------------------------------------------------------------------------  
+Q. How to create setter getter methods in Eclipse without writing the code.
+A  We can right click on the text editor. Select Source . Select setter and getter.
+
+We cannot have two public classes in the same file. So one of the class which is having
+main, we make that class as public and the other classes we keep them as default(not using any 
+access specifier). Suppose in the below example file name is Tester.java as Tester class is 
+public. Tester class is having the main method. So if multiple classes are present in a 
+single file, that class is made public which is having the main method.
+
+
+
+class Customer {
+
+	private String customerId;
+	private String customerName;
+	private long contactNumber;
+	private String address;
+	public String getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public long getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
+}
+
+public class Tester {
+
+	public static void main(String args[]) {
+		Customer customer = new Customer();
+		/*
+		 * customer.customerId = "C101"; customer.customerName = "Jack";
+		 * customer.contactNumber = 9870345687L; customer.address =
+		 * "D089, St. Louis Street, Springfield";
+		 * 
+		 * System.out.println("Displaying customer details");
+		 * System.out.println("Customer Id : " + customer.customerId);
+		 * System.out.println("Customer Name : " + customer.customerName);
+		 * System.out.println("Contact Number : " + customer.contactNumber);
+		 * System.out.println("Address : " + customer.address);
+		 */
+		customer.setCustomerId("E0001");
+		customer.setCustomerName("Tom");
+		customer.setContactNumber(1234567890);
+		customer.setAddress("Hyderabad");
+		System.out.println(customer.getCustomerId());
+		System.out.println(customer.getCustomerName());
+		System.out.println(customer.getContactNumber());
+		System.out.println(customer.getAddress());
+		
+	}
+}
+---------------------------------
+public class Employee {
+private int id;
+private String name;
+private String designation;
+private String department;
+private int basic;
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getDesignation() {
+	return designation;
+}
+public void setDesignation(String designation) {
+	this.designation = designation;
+}
+public String getDepartment() {
+	return department;
+}
+public void setDepartment(String department) {
+	this.department = department;
+}
+public int getBasic() {
+	return basic;
+}
+public void setBasic(int basic) {
+	this.basic = basic;
+}
+
+}
+
+
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+		Employee employee=new Employee();
+		employee.setId(1);
+		employee.setName("Raghav");
+		employee.setDesignation("Manager");
+		employee.setDepartment("Sales");
+		employee.setBasic(23000);
+		//System.out.println(employee.getId());
+		int id=employee.getId();
+		System.out.println(id);
+		//System.out.println(employee.getName());
+		String name=employee.getName();
+		System.out.println(name);
+		System.out.println(employee.getDesignation());
+		System.out.println(employee.getDepartment());
+		System.out.println(employee.getBasic());
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------
+public class Employee2 {
+private int id;
+private String name;
+private String designation;
+private String department;
+private int basic;
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getDesignation() {
+	return designation;
+}
+public void setDesignation(String designation) {
+	this.designation = designation;
+}
+public String getDepartment() {
+	return department;
+}
+public void setDepartment(String department) {
+	this.department = department;
+}
+public int getBasic() {
+	return basic;
+}
+public void setBasic(int basic) {
+	this.basic = basic;
+}
+
+}
+
+
+public class EmployeeMain2 {
+	public static void main(String[] args) {
+		Employee2 employee1=new Employee2();
+                Employee2 employee2=new Employee2();
+		employee1.setId(1);
+		employee1.setName("Raghav");
+		employee1.setDesignation("Manager");
+		employee1.setDepartment("Sales");
+		employee1.setBasic(23000);
+                employee2.setId(2);
+                employee2.setName("Akash");
+                employee2.setDesignation("AsstManager");
+                employee2.setDepartment("Sales");
+                employee2.setBAsic(20000);
+		//System.out.println(employee1.getId());
+		int id=employee1.getId();
+		System.out.println(id);
+		//System.out.println(employee1.getName());
+		String name=employee1.getName();
+		System.out.println(name);
+		System.out.println(employee1.getDesignation());
+		System.out.println(employee1.getDepartment());
+		System.out.println(employee1.getBasic());
+               employee2.setBAsic(20000);
+		System.out.println(employee2.getId());
+		System.out.println(employee2.getName());
+		System.out.println(employee2.getDesignation());
+		System.out.println(employee2.getDepartment());
+		System.out.println(employee2.getBasic());
+
+	}
+
+}
