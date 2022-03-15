@@ -478,28 +478,33 @@ Abstraction
 Complete the code with proper access specifiers and add the code as required.
 
 public class Number {
- int num1;
- int num2;
- int result;
+ private int num1;
+ private int num2;
+ private int result;
  
  //setter/getter methods for num1 and num2 and decide whether we require setter and getter for result
 
- int add(){
+
+ 
+
+public int add(){
  
  }
 
- int subtract(){
+public int subtract(){
 
  }
 
- int multiply(){
+public int multiply(){
 
  }
 
- int max(){
+public int max(){
  }
- int min(){
+ 
+public int min(){
  }
+
 }
 
 import java.util.Scanner;
@@ -520,6 +525,144 @@ public class NumberMain{
     }
  }
 
+---------------------------------------------------------------
+SOLUTION
 
+public class Number {
+ private int num1;
+ private int num2;
+ private int result;
+ 
+ //setter/getter methods for num1 and num2 and decide whether we require setter and getter for result
+public int getNum1() {
+	return num1;
+}
 
+public void setNum1(int num1) {
+	this.num1 = num1;
+}
 
+public int getNum2() {
+	return num2;
+}
+
+public void setNum2(int num2) {
+	this.num2 = num2;
+}
+
+public int add(){
+	 result=num1+num2;
+	 return result;
+	 }
+
+public int subtract(){
+	result=num1-num2;
+	 return result;
+ }
+
+public int multiply(){
+	result=num1*num2;
+	 return result;
+ }
+/*
+ * if(num1>num2){
+ * max=num1;
+ * }
+ * else
+ * {
+ * max=num2;
+ * }
+ */
+public int max(){
+	result=(num1>num2)?num1:num2;
+	return result;
+ }
+ 
+public int min(){
+ result=(num1<num2)?num1:num2;
+ return result;
+
+}
+
+}
+
+import java.util.Scanner;
+public class NumberMain{
+   public static void main(String args[]) {
+    Number number=new Number();
+    int result=0;
+    int num1;
+    int num2;
+    Scanner scan=new Scanner(System.in);
+    System.out.println("Enter number1");
+    num1=scan.nextInt();
+    number.setNum1(num1);
+    System.out.println("Enter number2");
+    num2=scan.nextInt();
+    number.setNum2(num2);
+    result=number.add();
+    System.out.println("The addition of num1 "+" and num2="+result);
+    System.out.println("The addition of "+number.getNum1()+" and "+number.getNum2()+"="+result);
+    result=number.subtract();
+    System.out.println("The subtraction of num2 "+" from num1="+result);
+    result=number.multiply();
+    System.out.println("The multiplication of num1 "+"with num2="+result);
+    result=number.max();
+    System.out.println(result+" is maximum");
+    result=number.min();
+    System.out.println(result+" is minimum");
+    }
+ }
+
+------------------------------------------------------------------------------
+public class StringDemo1 {
+
+   public static void main(String args[]) {
+  // In the below statement we created a String reference variable with the name str1 and it is storing the address of the string "Welcome".    
+   String str1="Welcome";
+  // We created a string object called the parameterized constructor of String class which is
+  // accepting a String as a parameter 
+  String str2=new String("Hello");
+  System.out.println(str1);
+  System.out.println(str2);
+ }
+} 
+       
+--------------
+public class StringDemo2 {
+
+   public static void main(String args[]) {
+   String str1="hello"; // In this line hello is a string literal/constant
+   // So when we writing the above line, it will first check whether we 
+   // have hello in the String constant pool, as in our case it is first
+   // line , it wont find "hello" in the string pool. So this constant(hello) is placed 
+   // in the string pool
+  String str2="hello"; // For this line again a check is done in the String constant pool,
+  // this time a string literal "hello" is found in the pool. So now the reference variable
+  // str2 will also point to the same string literal hello which got created before.
+   System.out.println(str1==str2);
+  }
+} 
+
+public class StringDemo3 {
+
+   public static void main(String args[]) {
+   String str1=new String("hello"); 
+   String str2=new String("hello"); 
+   System.out.println(str1==str2);
+  }
+} 
+
+--------------------------------------------------------------------------------------
+public class StringDemo4 {
+
+   public static void main(String args[]) {
+   String str1="hello"; 
+   int length=str1.length();
+   System.out.println(length);   //5
+   str1="Welcome";
+   length=str1.length();
+   System.out.println(length);   //7
+ }
+}
+---------------------------------------------------------------------------------------------------- 
